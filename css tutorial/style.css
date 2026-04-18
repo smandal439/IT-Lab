@@ -1,0 +1,20 @@
+body{
+    background-color: lightgray;
+}
+h1 {
+    color: blueviolet;
+    font-size: 60px;
+    text-align: center;
+    text-decoration: underline;
+    text-decoration-style: dashed;
+}
+
+h2 {
+    color: green;
+    font-size: 40px;
+}
+
+p {
+    color: black;
+    font-size: 20px;
+}
