@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Age Calculator</title>
+    <meta name="description" content="A simple and beautiful web app to calculate your exact age in years, months, and days.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="calculator-container">
+        <h1>Age Calculator</h1>
+        <div class="input-group">
+            <label for="birthdate">Enter your Date of Birth</label>
+            <input type="date" id="birthdate">
+        </div>
+        <div class="checkbox-group">
+            <input type="checkbox" id="use-current-date" checked onchange="toggleTargetDate()">
+            <label for="use-current-date">Calculate using current date</label>
+        </div>
+        <div class="input-group" id="target-date-group" style="display: none;">
+            <label for="targetdate">Enter Target Date</label>
+            <input type="date" id="targetdate">
+        </div>
+        <button onclick="calculateAge()" id="calculate-btn">Calculate Age</button>
+        <div class="result-container" id="result-container">
+            <p id="age-result">Please enter your birthdate.</p>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>
