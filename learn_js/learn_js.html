@@ -5,6 +5,19 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Learn JavaScript</title>
+  <style>
+    input {
+      margin: 5px;
+      padding: 10px;
+      font-size: 16px;
+    }
+
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+  </style>
 </head>
 
 <body>
@@ -14,14 +27,30 @@
     document.getElementById("demo").innerHTML = 7 + 8;
   </script> -->
 
-  <h1>Simple Calculator</h1>
+  <!-- simple calculator -->
+  <!-- <h1>Simple Calculator</h1>
   <input type="number" id="num1" placeholder="First Number" />
   <input type="number" id="num2" placeholder="Second Number" />
   <button onclick="addNumbers()">Add</button>
   <input type="number" id="result" placeholder="Result" readonly />
   <button onclick="clearAndAlart()">Reset</button>
-  <br>
+  <br> -->
 
+  <!-- convert days to years months weeks days -->
+  <h1>Convert Days to Years Months Weeks Days</h1>
+  <input type="number" id="days" placeholder="Enter number of days" />
+  <button onclick="convertDays()">Convert</button>
+  <br>
+  <label for="year">Years</label>
+  <input type="number" id="year" placeholder="Years" readonly />
+  <label for="month">Months</label>
+  <input type="number" id="month" placeholder="Months" readonly />
+  <label for="week">Weeks</label>
+  <input type="number" id="week" placeholder="Weeks" readonly />
+  <label for="day">Days</label>
+  <input type="number" id="day" placeholder="Days" readonly />
+  <button onclick="clearAndAlart1()">Reset</button>
+  <br>
 
   <script>
     // // for addition
@@ -93,26 +122,56 @@
       // alert("The input field has been cleared.");
     }
 
-    let days = parseInt(prompt("Enter the number of days:"));
-    let years = parseInt(days / 365);
-    days = days % 365;
-    let months = parseInt(days / 30);
-    days = days % 30;
-    let weeks = parseInt(days / 7);
-    days = days % 7;
-    document.write("Years: " + years);
-    document.write("<br>");
+    // let days = parseInt(prompt("Enter the number of days:"));
+    // document.write("<br>");
+    // document.write("Total Number of Days: " + days);
+    // let years = parseInt(days / 365);
+    // days = days % 365;
+    // let months = parseInt(days / 30);
+    // days = days % 30;
+    // let weeks = parseInt(days / 7);
+    // days = days % 7;
 
-    document.write("Months: " + months);
-    document.write("<br>");
+    // document.write("<br>");
+    // document.write("Years: " + years);
+    // document.write("<br>");
 
-    document.write("Weeks: " + weeks);
-    document.write("<br>");
+    // document.write("Months: " + months);
+    // document.write("<br>");
 
-    document.write("Days: " + days);
-    document.write("<br>");
+    // document.write("Weeks: " + weeks);
+    // document.write("<br>");
 
+    // document.write("Days: " + days);
+    // document.write("<br>");
 
+    // // for temperature conversion
+    // let celsius = parseFloat(prompt("Enter the temperature in Celsius:"));
+    // let fahrenheit = (celsius * 9/5) + 32;
+    // document.write("The temperature in Fahrenheit is: " + fahrenheit);
+    // document.write("<br>");
+
+    function convertDays() {
+      let days = document.getElementById("days").value;
+      let years = parseInt(days / 365);
+      days = days % 365;
+      let months = parseInt(days / 30);
+      days = days % 30;
+      let weeks = parseInt(days / 7);
+      days = days % 7;
+      document.getElementById("year").value = years;
+      document.getElementById("month").value = months;
+      document.getElementById("week").value = weeks;
+      document.getElementById("day").value = days;
+    }
+    function clearAndAlart1() {
+      document.getElementById("days").value = "";
+      document.getElementById("year").value = "";
+      document.getElementById("month").value = "";
+      document.getElementById("week").value = "";
+      document.getElementById("day").value = "";
+      // alert("The input field has been cleared.");
+    }
 
   </script>
 
