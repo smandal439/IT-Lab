@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learn CSS - Course Module</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="progress-container">
+        <div class="progress-bar" id="myBar"></div>
+    </div>
+
+    <button id="mobile-menu-toggle" class="mobile-toggle" aria-label="Toggle Navigation">
+        <i class="fas fa-bars"></i>
+    </button>
+
+    <div class="app-container">
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <h2><i class="fas fa-code"></i> WebDev Book</h2>
+                <button id="theme-toggle" class="theme-toggle" aria-label="Toggle Theme">
+                    <i class="fas fa-sun light-icon"></i>
+                    <i class="fas fa-moon dark-icon"></i>
+                </button>
+            </div>
+            <nav class="toc">
+                <ul>
+                    <li><a href="index.html" class="nav-link">Home</a></li>
+                    <li><a href="html-course.html" class="nav-link">1. Learn HTML</a></li>
+                    <li><a href="css-course.html" class="nav-link">2. Learn CSS</a></li>
+                    <li><a href="js-course.html" class="nav-link">3. Learn JavaScript</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <main class="content">
+            <article>
+                <header class="book-cover" style="padding: 2rem 0;">
+                    <h1 class="glow-text" style="font-size: 2.5rem;">Module 2: Styling with CSS</h1>
+                </header>
+
+                <section class="chapter">
+                    <h2>Bringing the Web to Life</h2>
+                    <p>Cascading Style Sheets (CSS) is used to style and layout web pages. It can alter the font, color, size, and spacing of your content, split it into multiple columns, or add animations and other decorative features.</p>
+                    
+                    <h3>The Box Model</h3>
+                    <p>Everything in CSS is a box. The Box Model consists of margins, borders, padding, and the actual content.</p>
+                    <div class="code-snippet">
+                        <code>
+<span class="selector">.box</span> {<br>
+&nbsp;&nbsp;<span class="value">/* Content size */</span><br>
+&nbsp;&nbsp;<span class="property">width</span>: <span class="value">200px</span>;<br>
+&nbsp;&nbsp;<span class="property">height</span>: <span class="value">100px</span>;<br>
+<br>
+&nbsp;&nbsp;<span class="value">/* Space INSIDE the border */</span><br>
+&nbsp;&nbsp;<span class="property">padding</span>: <span class="value">20px</span>;<br>
+<br>
+&nbsp;&nbsp;<span class="value">/* The border itself */</span><br>
+&nbsp;&nbsp;<span class="property">border</span>: <span class="value">2px solid blue</span>;<br>
+<br>
+&nbsp;&nbsp;<span class="value">/* Space OUTSIDE the border */</span><br>
+&nbsp;&nbsp;<span class="property">margin</span>: <span class="value">15px</span>;<br>
+}
+                        </code>
+                    </div>
+
+                    <h3>Flexbox Layout</h3>
+                    <p>Flexbox makes it easy to align elements perfectly horizontally or vertically.</p>
+                    <div class="code-snippet">
+                        <code>
+<span class="selector">.container</span> {<br>
+&nbsp;&nbsp;<span class="property">display</span>: <span class="value">flex</span>;<br>
+&nbsp;&nbsp;<span class="property">justify-content</span>: <span class="value">space-between</span>; <span class="value">/* Spacing */</span><br>
+&nbsp;&nbsp;<span class="property">align-items</span>: <span class="value">center</span>; <span class="value">/* Vertical alignment */</span><br>
+}<br>
+<br>
+<span class="selector">.item</span> {<br>
+&nbsp;&nbsp;<span class="property">flex</span>: <span class="value">1</span>; <span class="value">/* Take up available space */</span><br>
+}
+                        </code>
+                    </div>
+
+                    <div class="interactive-box highlight" style="margin-top: 3rem; display: flex; justify-content: space-between; align-items: center;">
+                        <div>
+                            <h4>Ready for the next step?</h4>
+                            <p>Move on to JavaScript to add interactivity and logic.</p>
+                        </div>
+                        <a href="js-course.html" class="action-btn" style="text-decoration: none;">Next: JS Module <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </section>
+            </article>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

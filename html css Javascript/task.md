@@ -1,0 +1,6 @@
+- `[x]` Refactor `index.html` to serve as a welcome/overview page.
+- `[x]` Create `html-course.html` with deep-dive HTML content.
+- `[x]` Create `css-course.html` with deep-dive CSS content.
+- `[x]` Create `js-course.html` with deep-dive JavaScript content.
+- `[x]` Update `script.js` to handle active state navigation for multiple pages.
+- `[x]` Test navigation and verify that theme persistence works across all pages.

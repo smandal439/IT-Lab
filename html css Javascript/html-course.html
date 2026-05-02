@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learn HTML - Course Module</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="progress-container">
+        <div class="progress-bar" id="myBar"></div>
+    </div>
+
+    <button id="mobile-menu-toggle" class="mobile-toggle" aria-label="Toggle Navigation">
+        <i class="fas fa-bars"></i>
+    </button>
+
+    <div class="app-container">
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <h2><i class="fas fa-code"></i> WebDev Book</h2>
+                <button id="theme-toggle" class="theme-toggle" aria-label="Toggle Theme">
+                    <i class="fas fa-sun light-icon"></i>
+                    <i class="fas fa-moon dark-icon"></i>
+                </button>
+            </div>
+            <nav class="toc">
+                <ul>
+                    <li><a href="index.html" class="nav-link">Home</a></li>
+                    <li><a href="html-course.html" class="nav-link">1. Learn HTML</a></li>
+                    <li><a href="css-course.html" class="nav-link">2. Learn CSS</a></li>
+                    <li><a href="js-course.html" class="nav-link">3. Learn JavaScript</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <main class="content">
+            <article>
+                <header class="book-cover" style="padding: 2rem 0;">
+                    <h1 class="glow-text" style="font-size: 2.5rem;">Module 1: Mastering HTML</h1>
+                </header>
+
+                <section class="chapter">
+                    <h2>The Foundation of the Web</h2>
+                    <p>HTML (HyperText Markup Language) is the most basic building block of the Web. It defines the meaning and structure of web content.</p>
+                    
+                    <h3>Essential HTML Tags</h3>
+                    <p>Here are the fundamental tags you must know:</p>
+                    <div class="code-snippet">
+                        <code>
+<span class="value">&lt;!-- Document Structure --&gt;</span><br>
+<span class="selector">&lt;!DOCTYPE html&gt;</span><br>
+<span class="selector">&lt;html</span> <span class="property">lang</span>=<span class="value">"en"</span><span class="selector">&gt;</span><br>
+<span class="selector">&lt;head&gt;</span><br>
+&nbsp;&nbsp;<span class="selector">&lt;title&gt;</span>My Page<span class="selector">&lt;/title&gt;</span><br>
+<span class="selector">&lt;/head&gt;</span><br>
+<span class="selector">&lt;body&gt;</span><br>
+<br>
+<span class="value">&lt;!-- Text Elements --&gt;</span><br>
+<span class="selector">&lt;h1&gt;</span>Main Heading<span class="selector">&lt;/h1&gt;</span><br>
+<span class="selector">&lt;p&gt;</span>This is a paragraph of text.<span class="selector">&lt;/p&gt;</span><br>
+<span class="selector">&lt;strong&gt;</span>Bold text<span class="selector">&lt;/strong&gt;</span> and <span class="selector">&lt;em&gt;</span>italic text<span class="selector">&lt;/em&gt;</span>.<br>
+<br>
+<span class="value">&lt;!-- Links and Images --&gt;</span><br>
+<span class="selector">&lt;a</span> <span class="property">href</span>=<span class="value">"https://example.com"</span><span class="selector">&gt;</span>Visit Example<span class="selector">&lt;/a&gt;</span><br>
+<span class="selector">&lt;img</span> <span class="property">src</span>=<span class="value">"image.jpg"</span> <span class="property">alt</span>=<span class="value">"Description"</span><span class="selector">&gt;</span><br>
+<br>
+<span class="selector">&lt;/body&gt;</span><br>
+<span class="selector">&lt;/html&gt;</span>
+                        </code>
+                    </div>
+
+                    <h3>HTML Forms</h3>
+                    <p>Forms are how we collect data from users (like logging in or sending a message).</p>
+                    <div class="code-snippet">
+                        <code>
+<span class="selector">&lt;form</span> <span class="property">action</span>=<span class="value">"/submit"</span> <span class="property">method</span>=<span class="value">"POST"</span><span class="selector">&gt;</span><br>
+&nbsp;&nbsp;<span class="selector">&lt;label</span> <span class="property">for</span>=<span class="value">"username"</span><span class="selector">&gt;</span>Username:<span class="selector">&lt;/label&gt;</span><br>
+&nbsp;&nbsp;<span class="selector">&lt;input</span> <span class="property">type</span>=<span class="value">"text"</span> <span class="property">id</span>=<span class="value">"username"</span> <span class="property">name</span>=<span class="value">"username"</span> <span class="property">required</span><span class="selector">&gt;</span><br>
+<br>
+&nbsp;&nbsp;<span class="selector">&lt;label</span> <span class="property">for</span>=<span class="value">"email"</span><span class="selector">&gt;</span>Email:<span class="selector">&lt;/label&gt;</span><br>
+&nbsp;&nbsp;<span class="selector">&lt;input</span> <span class="property">type</span>=<span class="value">"email"</span> <span class="property">id</span>=<span class="value">"email"</span> <span class="property">name</span>=<span class="value">"email"</span><span class="selector">&gt;</span><br>
+<br>
+&nbsp;&nbsp;<span class="selector">&lt;button</span> <span class="property">type</span>=<span class="value">"submit"</span><span class="selector">&gt;</span>Submit<span class="selector">&lt;/button&gt;</span><br>
+<span class="selector">&lt;/form&gt;</span>
+                        </code>
+                    </div>
+
+                    <div class="interactive-box highlight" style="margin-top: 3rem; display: flex; justify-content: space-between; align-items: center;">
+                        <div>
+                            <h4>Ready for the next step?</h4>
+                            <p>Move on to CSS to learn how to make your HTML look beautiful.</p>
+                        </div>
+                        <a href="css-course.html" class="action-btn" style="text-decoration: none;">Next: CSS Module <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </section>
+            </article>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
