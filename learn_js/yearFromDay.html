@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let a = prompt("Enter the number of days: ");
+      let year = Math.floor(a / 365);
+      let rem_days = a % 365;
+      let month = Math.floor(rem_days / 30);
+      let days = rem_days % 30;
+      document.write("Year: " + year + "<br>");
+      document.write("Month: " + month + "<br>");
+      document.write("Days: " + days + "<br>");
+    </script>
+  </body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Age Calculator</title>
+</head>
+<body>
+    <h1>Your Age</h1>
+    <p id="result">Calculating...</p>
+
+    <script>
+        // 1. Get birthdate from user prompt
+        const birthInput = prompt("Enter your birthdate (YYYY-MM-DD):", "1987-05-08");
+        
+        if (birthInput) {
+            const birthDate = new Date(birthInput);
+            const today = new Date(); // Gets current system date
+
+            // 2. Basic validation
+            if (isNaN(birthDate)) {
+                document.getElementById('result').innerText = "Invalid date format. Please use YYYY-MM-DD.";
+            } else {
+                // 3. Calculate the difference in time (milliseconds)
+                const diffInMs = today - birthDate;
+                
+                // 4. Convert milliseconds to total days
+                const totalDays = Math.floor(diffInMs / (1000 * 60 * 60 * 24));
+                
+                // 5. Calculate Years, Months, and remaining Days
+                let years = today.getFullYear() - birthDate.getFullYear();
+                let months = today.getMonth() - birthDate.getMonth();
+                let days = today.getDate() - birthDate.getDate();
+
+                // Adjust if the current month/day is before the birth month/day
+                if (days < 0) {
+                    months--;
+                    const lastMonth = new Date(today.getFullYear(), today.getMonth(), 0);
+                    days += lastMonth.getDate();
+                }
+                if (months < 0) {
+                    years--;
+                    months += 12;
+                }
+
+                // Display the result
+                document.getElementById('result').innerHTML = 
+                    `You are <strong>${years} years, ${months} months, and ${days} days</strong> old.<br>` +
+                    `Total days lived: <strong>${totalDays.toLocaleString()} days</strong>.`;
+            }
+        } else {
+            document.getElementById('result').innerText = "No birthdate entered.";
+        }
+    </script>
+</body>
+</html>
