@@ -4,18 +4,99 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Document</title>
+  <title>Learn JavaScript</title>
 </head>
 
 <body>
-  <p>The addition of 7+8 =</p>
+  <!-- <p>The addition of 7+8 =</p>
   <p id="demo"></p>
   <script>
-    document.write(8 + 8);
-    window.alert(9 + 9);
-    console.log(5 + 5);
     document.getElementById("demo").innerHTML = 7 + 8;
+  </script> -->
+
+  <h1>Simple Calculator</h1>
+  <input type="number" id="num1" placeholder="First Number" />
+  <input type="number" id="num2" placeholder="Second Number" />
+  <button onclick="addNumbers()">Add</button>
+  <input type="number" id="result" placeholder="Result" readonly />
+  <button onclick="clearAndAlart()">Reset</button>
+  <br>
+
+
+  <script>
+    // // for addition
+    // console.log(8 + 8);
+
+    // // for subraction
+    // console.log(16 - 25);
+
+    // // for multiplication
+    // console.log(8 * 8);
+
+    // // for division
+    // console.log(8 / 8);
+
+    // // for modulus
+    // console.log(8 % 8);
+
+    // // for exponentiation
+    // console.log(8 ** 8);
+
+    // // for increment
+    // // console.log(++8);
+
+    // // for decrement
+    // // console.log(--8);
+
+    // // for increment and decrement
+    // // console.log(8++ + --8);
+
+    // // for writing in document
+    // document.write(" JavaScript Tutorial");
+
+    // // for alert box
+    // // alert("Hello World");
+
+    // // for prompt box
+    // document.write("<br>");
+    // var a = prompt("Enter your name");
+    // document.write("You entered: " + a);
+
+    // let x = prompt("Enter 1st number:", "0");
+    // console.log(x);
+    // console.log(typeof x);
+    // let y = prompt("Enter 2nd number:", "0");
+    // console.log(y);
+    // console.log(typeof y);
+    // let sum = x + y;
+    // document.write("<br>");
+    // document.write("The sum of " + x + " and " + y + " is " + sum);
+    // console.log(sum);
+
+    // let sum1 = parseInt(x) + parseInt(y);
+    // document.write("<br>");
+    // document.write("The sum of " + x + " and " + y + " is " + sum1);
+    // console.log(sum1);
+
+
+
+    function addNumbers() {
+      let num1 = document.getElementById("num1").value;
+      let num2 = document.getElementById("num2").value;
+      let result = parseInt(num1) + parseInt(num2);
+      document.getElementById("result").value = result;
+    }
+    function clearAndAlart() {
+      document.getElementById("num1").value = "";
+      document.getElementById("num2").value = "";
+      document.getElementById("result").value = "";
+      // alert("The input field has been cleared.");
+    }
+
+
+
   </script>
+
 </body>
 
 </html>
