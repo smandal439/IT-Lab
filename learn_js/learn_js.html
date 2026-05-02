@@ -93,6 +93,25 @@
       // alert("The input field has been cleared.");
     }
 
+    let days = parseInt(prompt("Enter the number of days:"));
+    let years = parseInt(days / 365);
+    days = days % 365;
+    let months = parseInt(days / 30);
+    days = days % 30;
+    let weeks = parseInt(days / 7);
+    days = days % 7;
+    document.write("Years: " + years);
+    document.write("<br>");
+
+    document.write("Months: " + months);
+    document.write("<br>");
+
+    document.write("Weeks: " + weeks);
+    document.write("<br>");
+
+    document.write("Days: " + days);
+    document.write("<br>");
+
 
 
   </script>
