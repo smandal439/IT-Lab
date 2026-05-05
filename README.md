@@ -1,4 +1,6 @@
-# 🛠️ IT-Lab Projects
+# smandal439 
+
+# 🛠️ IT-Lab Projects 
 
 * [🧮 Scientific Calculator](https://smandal439.github.io/IT-Lab/scientificCalculator/)
 * [🔢 Standard Calculator](https://smandal439.github.io/IT-Lab/calculator/)
