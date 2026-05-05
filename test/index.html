@@ -6,15 +6,48 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 50vh;
+        }
         button {
             margin: 10px;
             padding: 10px 20px;
+            background-color: hsla(214, 91%, 55%, 0.993);
+            color: white;
             font-size: 16px;
+            cursor: pointer;
+            border: none;
+            border-radius: 10px;
+            box-shadow: 3px 3px 5px rgba(243, 133, 133, 0.678);
+            /* display: flex; */
+            justify-content: center;
+            align-items: center;
+
         }
 
-        #test4 {
+        button:hover {
+            background-color: hsla(214, 17%, 54%, 0.795)b;
+            box-shadow: 4px 4px 5px rgba(230, 60, 60, 0.678);
+            color: thistle;
+        }
+
+        #click_para {
             margin-top: 20px;
             font-size: 18px;
+        }
+
+        .para {
+            background-color: rgb(240, 240, 240);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+            width: fit-content;
         }
     </style>
 </head>
@@ -23,20 +56,21 @@
     <button id="test1">Click Me</button>
     <button id="test2">Click Me</button>
     <button id="test3">Click count</button>
-
-    <p id="test4">You have clicked <span id="clickCount">0</span> times.</p>
+    <div class="para">
+        <p id="click_para">You have clicked <span id="clickCount">0</span> times.</p>
+    </div>
 
 
     <script>
 
         document.getElementById("test1").onclick = function () {
-            document.getElementById("test1").innerHTML = "Clicked";
+            document.getElementById("test1").innerHTML = " Clicked ";
         }
 
         document.getElementById("test2").onclick = clickTest;
 
         function clickTest() {
-            document.getElementById("test2").innerHTML = "Clicked";
+            document.getElementById("test2").innerHTML = " Clicked ";
         }
 
         let clickCount = 0;
@@ -44,9 +78,9 @@
             clickCount++;
             document.getElementById("clickCount").innerHTML = clickCount;
             if (clickCount >= 5) {
+                document.getElementById("clickCount").innerHTML = clickCount;
                 alert("You have clicked the button 5 times!");
                 clickCount = 0; // Reset the count after alert 
-                document.getElementById("clickCount").innerHTML = clickCount;               
             }
         });
     </script>
