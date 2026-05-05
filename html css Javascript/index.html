@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learn HTML, CSS, and JavaScript: A Beginner’s Guide</title>
+    <meta name="description" content="A beautiful and interactive beginner's guide to web development covering HTML, CSS, and JavaScript.">
+    <!-- Google Fonts: Inter and Outfit -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@400;600;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="progress-container">
+        <div class="progress-bar" id="myBar"></div>
+    </div>
+
+    <button id="mobile-menu-toggle" class="mobile-toggle" aria-label="Toggle Navigation">
+        <i class="fas fa-bars"></i>
+    </button>
+
+    <div class="app-container">
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <h2><i class="fas fa-code"></i> WebDev Book</h2>
+                <button id="theme-toggle" class="theme-toggle" aria-label="Toggle Theme">
+                    <i class="fas fa-sun light-icon"></i>
+                    <i class="fas fa-moon dark-icon"></i>
+                </button>
+            </div>
+            <nav class="toc">
+                <ul>
+                    <li><a href="index.html" class="nav-link">Home</a></li>
+                    <li><a href="html-course.html" class="nav-link">1. Learn HTML</a></li>
+                    <li><a href="css-course.html" class="nav-link">2. Learn CSS</a></li>
+                    <li><a href="js-course.html" class="nav-link">3. Learn JavaScript</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <main class="content">
+            <article>
+                <header class="book-cover">
+                    <h1 class="glow-text">Learn HTML, CSS, and JavaScript</h1>
+                    <p class="subtitle">A Beginner’s Guide to Web Development</p>
+                </header>
+
+                <section class="chapter">
+                    <h2>Welcome to the Course!</h2>
+                    <p>Welcome to the world of web development! In this course, you will take your first steps towards building beautiful, interactive websites.</p>
+                    
+                    <ul class="feature-list">
+                        <li><i class="fas fa-check-circle"></i> Why learn web development? It is one of the most in-demand skills in the world.</li>
+                        <li><i class="fas fa-check-circle"></i> What you’ll learn: The core technologies of the web—HTML, CSS, and JavaScript.</li>
+                        <li><i class="fas fa-check-circle"></i> How to use this book: Follow the modules in the sidebar step-by-step.</li>
+                        <li><i class="fas fa-check-circle"></i> Tools you’ll need: A Text editor (like VS Code), a browser (like Chrome), and a basic understanding of computers.</li>
+                    </ul>
+
+                    <div class="interactive-box highlight">
+                        <h4><i class="fas fa-rocket"></i> Get Started</h4>
+                        <p>Are you ready to begin your journey? Click the button below to start the first module on HTML.</p>
+                        <a href="html-course.html" class="action-btn" style="display: inline-block; text-decoration: none;">Start Learning HTML</a>
+                    </div>
+                </section>
+            </article>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

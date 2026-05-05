@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learn JavaScript - Course Module</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="progress-container">
+        <div class="progress-bar" id="myBar"></div>
+    </div>
+
+    <button id="mobile-menu-toggle" class="mobile-toggle" aria-label="Toggle Navigation">
+        <i class="fas fa-bars"></i>
+    </button>
+
+    <div class="app-container">
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <h2><i class="fas fa-code"></i> WebDev Book</h2>
+                <button id="theme-toggle" class="theme-toggle" aria-label="Toggle Theme">
+                    <i class="fas fa-sun light-icon"></i>
+                    <i class="fas fa-moon dark-icon"></i>
+                </button>
+            </div>
+            <nav class="toc">
+                <ul>
+                    <li><a href="index.html" class="nav-link">Home</a></li>
+                    <li><a href="html-course.html" class="nav-link">1. Learn HTML</a></li>
+                    <li><a href="css-course.html" class="nav-link">2. Learn CSS</a></li>
+                    <li><a href="js-course.html" class="nav-link">3. Learn JavaScript</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <main class="content">
+            <article>
+                <header class="book-cover" style="padding: 2rem 0;">
+                    <h1 class="glow-text" style="font-size: 2.5rem;">Module 3: JavaScript Programming</h1>
+                </header>
+
+                <section class="chapter">
+                    <h2>Adding Logic to the Web</h2>
+                    <p>JavaScript is a powerful programming language that can calculate, manipulate, and validate data. It runs in the browser, making your pages highly interactive.</p>
+                    
+                    <h3>DOM Manipulation</h3>
+                    <p>The DOM (Document Object Model) is how JavaScript sees your HTML. You can use JavaScript to change HTML elements on the fly.</p>
+                    <div class="code-snippet">
+                        <code>
+<span class="value">// Change text content</span><br>
+<span class="selector">document</span>.<span class="property">getElementById</span>(<span class="value">"title"</span>).<span class="property">textContent</span> = <span class="value">"New Title!"</span>;<br>
+<br>
+<span class="value">// Change styles</span><br>
+<span class="selector">document</span>.<span class="property">querySelector</span>(<span class="value">".box"</span>).<span class="property">style</span>.<span class="property">backgroundColor</span> = <span class="value">"red"</span>;<br>
+<br>
+<span class="value">// Create a new element</span><br>
+<span class="selector">const</span> newPara = <span class="selector">document</span>.<span class="property">createElement</span>(<span class="value">"p"</span>);<br>
+newPara.<span class="property">textContent</span> = <span class="value">"I was created with JS."</span>;<br>
+<span class="selector">document</span>.<span class="property">body</span>.<span class="property">appendChild</span>(newPara);
+                        </code>
+                    </div>
+
+                    <h3>ES6+ Modern Syntax</h3>
+                    <p>Modern JavaScript has clean syntax features like Arrow Functions and Template Literals.</p>
+                    <div class="code-snippet">
+                        <code>
+<span class="value">// Arrow Function</span><br>
+<span class="selector">const</span> add = (a, b) => a + b;<br>
+<br>
+<span class="value">// Template Literals (using backticks)</span><br>
+<span class="selector">const</span> name = <span class="value">"Sarah"</span>;<br>
+<span class="selector">console</span>.<span class="property">log</span>(<span class="value">`Welcome back, ${name}!`</span>);
+                        </code>
+                    </div>
+
+                    <div class="interactive-demo" id="demo-box">
+                        <h4>Interactive Counter Demo</h4>
+                        <p id="counter-text" style="font-size: 2rem; font-weight: bold; margin: 1rem 0;">0</p>
+                        <button class="action-btn" id="demo-btn">Increment</button>
+                    </div>
+
+                </section>
+            </article>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
