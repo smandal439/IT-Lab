@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learning JavaScript Functions</title>
+</head>
+<body>
+    
+    <script>
+        // Function Declaration
+        function greet(name) {
+            return `Hello, ${name}!`;
+        }
+
+        // Function Expression
+        const add = function(a, b) {
+            return a + b;
+        };
+
+        // Arrow Function
+        const multiply = (a, b) => a * b;
+
+        // Using the functions
+        console.log(greet("Alice")); // Output: Hello, Alice!
+        console.log(add(5, 3));      // Output: 8
+        console.log(multiply(4, 2)); // Output: 8
+    </script>
+</body>
+</html>

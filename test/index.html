@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        button {
+            margin: 10px;
+            padding: 10px 20px;
+            font-size: 16px;
+        }
+
+        #test4 {
+            margin-top: 20px;
+            font-size: 18px;
+        }
+    </style>
+</head>
+
+<body>
+    <button id="test1">Click Me</button>
+    <button id="test2">Click Me</button>
+    <button id="test3">Click Me</button>
+
+    <p id="test4">You have clicked <span id="clickCount">0</span> times.</p>
+
+
+    <script>
+
+        document.getElementById("test1").onclick = function () {
+            document.getElementById("test1").innerHTML = "Clicked";
+        }
+
+        document.getElementById("test2").onclick = clickTest;
+
+        function clickTest() {
+            document.getElementById("test2").innerHTML = "Clicked";
+        }
+
+        let clickCount = 0;
+        document.getElementById("test3").addEventListener("click", function () {
+            clickCount++;
+            document.getElementById("clickCount").innerHTML = clickCount;
+            if (clickCount >= 5) {
+                alert("You have clicked the button 5 times!");
+                clickCount = 0; // Reset the count after alert 
+                document.getElementById("clickCount").innerHTML = clickCount;               
+            }
+        });
+    </script>
+</body>
+
+</html>
