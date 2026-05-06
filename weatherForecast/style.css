@@ -54,4 +54,5 @@ button:hover {
 
 .weather-info p {
     margin: 5px 0;
+    font-size: larger;
 }
