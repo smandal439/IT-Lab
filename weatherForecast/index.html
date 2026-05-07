@@ -9,8 +9,11 @@
   <body>
     <h1>Weather Dashboard</h1>
     <div class="container">
-      <input type="text" id="city" placeholder="Enter city name" />
-      <button id="getWeather">Get Weather</button>
+        <div class="input-wrapper">
+            <input type="text" id="city" placeholder="Enter city name" autocomplete="off" />
+            <ul id="suggestions" class="suggestions-list"></ul>
+        </div>
+        <button id="getWeather">Get Weather</button>
       <div id="weatherResult" class="weather-info"></div>
     </div>
     <script src="script.js"></script>
