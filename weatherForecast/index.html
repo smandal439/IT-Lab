@@ -8,12 +8,16 @@
   </head>
   <body>
     <h1>Weather Dashboard</h1>
+    <p class="subtitle">Search current weather, switch units, and revisit your recent cities.</p>
     <div class="container">
         <div class="input-wrapper">
             <input type="text" id="city" placeholder="Enter city name" autocomplete="off" />
             <ul id="suggestions" class="suggestions-list"></ul>
         </div>
-        <button id="getWeather">Get Weather</button>
+        <div class="controls">
+          <button id="getWeather">Get Weather</button>
+          <button id="unitToggle">Switch to °F</button>
+        </div>
       <div id="weatherResult" class="weather-info"></div>
       <div id="recentSearches" class="recent-searches">
         <h3>Recent Searches</h3>
