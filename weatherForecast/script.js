@@ -1,6 +1,45 @@
 const apiKey = "c9ef4dc095a63d7eaeb334a5915be17b";
 const cityInput = document.getElementById("city");
 const suggestionsList = document.getElementById("suggestions");
+const recentList = document.getElementById("recentList");
+const recentSearchesKey = "recentWeatherSearches";
+
+function loadRecentSearches() {
+  const stored = localStorage.getItem(recentSearchesKey);
+  try {
+    const parsed = JSON.parse(stored);
+    return Array.isArray(parsed) ? parsed : [];
+  } catch {
+    return [];
+  }
+}
+
+function saveRecentSearches(searches) {
+  localStorage.setItem(recentSearchesKey, JSON.stringify(searches));
+}
+
+function addRecentSearch(city) {
+  if (!city) return;
+
+  const searches = loadRecentSearches();
+  const normalized = city.toLowerCase();
+  const updated = [city, ...searches.filter((item) => item.toLowerCase() !== normalized)];
+  const limited = updated.slice(0, 5);
+  saveRecentSearches(limited);
+  renderRecentSearches();
+}
+
+function renderRecentSearches() {
+  const searches = loadRecentSearches();
+  if (searches.length === 0) {
+    recentList.innerHTML = "<li class=\"empty\">No recent searches yet.</li>";
+    return;
+  }
+
+  recentList.innerHTML = searches
+    .map((item) => `<li data-value="${item}">${item}</li>`)
+    .join("");
+}
 
 function fetchWeather() {
   const city = cityInput.value.trim();
@@ -26,6 +65,7 @@ function fetchWeather() {
                     <p>Wind Speed: ${data.wind.speed} m/s</p>
                 `;
         document.getElementById("weatherResult").innerHTML = weatherInfo;
+        addRecentSearch(city);
       } else {
         document.getElementById("weatherResult").innerHTML =
           `<p>Error: ${data.message}</p>`;
@@ -112,8 +152,18 @@ suggestionsList.addEventListener("click", function (event) {
   }
 });
 
+recentList.addEventListener("click", function (event) {
+  const item = event.target.closest("li");
+  if (item && item.dataset.value) {
+    cityInput.value = item.dataset.value;
+    fetchWeather();
+  }
+});
+
 document.addEventListener("click", function (event) {
   if (!event.target.closest(".input-wrapper")) {
     hideSuggestions();
   }
 });
+
+renderRecentSearches();

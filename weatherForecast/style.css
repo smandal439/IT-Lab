@@ -78,6 +78,46 @@ button:hover {
     background-color: #0056b3;
 }
 
+.recent-searches {
+    margin-top: 24px;
+    text-align: left;
+    border-top: 1px solid #e1e7ef;
+    padding-top: 18px;
+}
+
+.recent-searches h3 {
+    margin: 0 0 10px;
+    color: #333;
+    font-size: 1.1rem;
+}
+
+.recent-searches ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.recent-searches li {
+    padding: 10px 12px;
+    margin-bottom: 8px;
+    background: #f6fbff;
+    border: 1px solid #d6e9ff;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.recent-searches li:hover {
+    background-color: #e9f2ff;
+}
+
+.recent-searches li.empty {
+    color: #666;
+    background: transparent;
+    border: none;
+    cursor: default;
+}
+
 .weather-info {
     margin-top: 20px;
     font-size: larger;
