@@ -1,0 +1,27 @@
+<html>
+
+<body>
+    <p id="bulb"> <img src='off.png'> </p>
+    <input type="submit" value="switch" id="sw" onclick="f1()">
+    <script>
+        let state = 0;
+        function f1() {
+            if (state == 0) {
+                document.getElementById("bulb").innerHTML = "<img src='on.png'>";
+                document.getElementById("sw").value = "off";
+                state = 1;
+            }
+
+            else {
+                document.getElementById("bulb").innerHTML = "<img src='off.png'>";
+                document.getElementById("sw").value = "on";
+                state = 0;
+            }
+        }	
+    </script>
+</body>
+
+
+
+
+</html>

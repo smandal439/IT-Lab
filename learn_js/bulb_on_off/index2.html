@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+    <div id="bulb"></div>
+
+    <script>
+        // Prompt the user and convert to an integer
+        let data = parseInt(prompt("Enter number:"));
+
+        // Isolate the 5th bit (value 16) and shift it to the 1st position
+        data = (data & 16) >> 4;
+
+        // Reference the div element
+        const bulbDiv = document.getElementById("bulb");
+
+        if (data) {
+            bulbDiv.innerHTML = "Bulb On! <br> <img src='on.png' alt='On'>";
+        } else {
+            bulbDiv.innerHTML = "Bulb Off! <br> <img src='off.png' alt='Off'>";
+        }
+    </script>
+</body>
+
+</html>
