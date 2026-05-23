@@ -1,0 +1,42 @@
+<!doctype html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta charset="utf-8">
+  <title>Bulbs</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>Bulbs</h1>
+  <div id="bulbs" class="grid"></div>
+
+  <script>
+    async function fetchState(){
+      const res = await fetch('api.php');
+      return res.json();
+    }
+    function render(bulbs){
+      const container = document.getElementById('bulbs');
+      container.innerHTML = '';
+      bulbs.forEach((on, i) => {
+        const el = document.createElement('div');
+        el.className = 'bulb ' + (on ? 'on':'off');
+        el.innerHTML = '<div class="icon">💡</div><div class="idx">#'+(i+1)+'</div>';
+        container.appendChild(el);
+      });
+    }
+    let polling = true;
+    async function loop(){
+      try{
+        const data = await fetchState();
+        render(data.bulbs || []);
+      }catch(e){
+        console.error(e);
+      }finally{
+        if (polling) setTimeout(loop, 1000);
+      }
+    }
+    loop();
+  </script>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!doctype html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta charset="utf-8">
+  <title>Switches</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>Switches</h1>
+  <div style="margin-bottom:12px">
+    <label>Number of bulbs: <input id="count" type="number" min="0" value="4" style="width:80px"> <button id="setCount">Set</button></label>
+  </div>
+  <div id="switches" class="grid"></div>
+
+  <script>
+    async function api(data){
+      let opts = {method:'GET'};
+      if (data) {
+        opts = {method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify(data)};
+      }
+      const res = await fetch('api.php', opts);
+      return res.json();
+    }
+    async function refresh(){
+      const data = await api();
+      const bulbs = data.bulbs || [];
+      document.getElementById('count').value = bulbs.length;
+      const container = document.getElementById('switches');
+      container.innerHTML = '';
+      bulbs.forEach((on,i)=>{
+        const row = document.createElement('div');
+        row.className='switch-row';
+        const label = document.createElement('span');
+        label.textContent = 'Bulb #'+(i+1);
+        const btn = document.createElement('button');
+        btn.textContent = on ? 'Turn off' : 'Turn on';
+        btn.onclick = async ()=> {
+          await api({action:'toggle', index:i});
+          refresh();
+        };
+        row.appendChild(label); row.appendChild(btn);
+        container.appendChild(row);
+      });
+    }
+    document.getElementById('setCount').onclick = async ()=>{
+      const c = parseInt(document.getElementById('count').value)||0;
+      await api({action:'set_count', count:c});
+      refresh();
+    };
+    refresh();
+  </script>
+</body>
+</html>
