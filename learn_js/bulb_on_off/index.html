@@ -1,15 +1,19 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <title>Bulb On/Off</title>
     <style>
         body {
             text-align: center;
             font-family: Arial, sans-serif;
+            background-color: #f0acac;
         }
+
         #bulb {
             margin: 20px;
         }
+
         #sw {
             margin: 20px;
             padding: 10px 20px;
@@ -17,9 +21,11 @@
         }
     </style>
 </head>
+
 <body>
     <p id="bulb"> <img src='off.png'> </p>
-    <input type="submit" value="turn on" id="sw" onmouseover="f1()">
+    <!-- <input type="submit" value="turn on" id="sw" onmouseover="f1()"> -->
+    <input type="submit" value="turn on" id="sw" onclick="f1()">
     <script>
         let state = 0;
         function f1() {
