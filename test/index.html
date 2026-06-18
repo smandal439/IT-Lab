@@ -53,9 +53,9 @@
 </head>
 
 <body>
-    <button id="test1">Click Me</button>
-    <button id="test2">Click Me</button>
-    <button id="test3">Click count</button>
+    <button id="btn1">Click Me</button>
+    <button id="btn2">Click Me</button>
+    <button id="btn3">Click count</button>
     <div class="para">
         <p id="click_para">You have clicked <span id="clickCount">0</span> times.</p>
     </div>
@@ -63,18 +63,18 @@
 
     <script>
 
-        document.getElementById("test1").onclick = function () {
-            document.getElementById("test1").innerHTML = " Clicked ";
+        document.getElementById("btn1").onclick = function () {
+            document.getElementById("btn1").innerHTML = " Clicked ";
         }
 
-        document.getElementById("test2").onclick = clickTest;
+        document.getElementById("btn2").onmouseover = clickTest;
 
         function clickTest() {
-            document.getElementById("test2").innerHTML = " Clicked ";
+            document.getElementById("btn2").innerHTML = " Clicked ";
         }
 
         let clickCount = 0;
-        document.getElementById("test3").addEventListener("click", function () {
+        document.getElementById("btn3").addEventListener("click", function () {
             clickCount++;
             document.getElementById("clickCount").innerHTML = clickCount;
             if (clickCount >= 5) {
