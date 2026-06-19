@@ -10,8 +10,11 @@
   <main class="app-shell">
     <section class="calculator-card">
       <div class="card-header">
-        <h1>SIP Calculator</h1>
-        <p>Estimate how much your monthly investments can grow over time.</p>
+        <div>
+          <h1>SIP Calculator</h1>
+          <p>Estimate how much your monthly investments can grow over time.</p>
+        </div>
+        <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Toggle light and dark mode">Light Mode</button>
       </div>
 
       <p id="error-message" class="error-message hidden" role="alert"></p>
@@ -55,6 +58,15 @@
           </div>
         </div>
         <p class="note">This estimate assumes a steady annual return and monthly investment.</p>
+
+        <div class="chart-card">
+          <h3>Annual investment vs returns</h3>
+          <div id="chart" class="bar-chart" aria-label="Annual invested and returns chart"></div>
+          <div class="chart-legend" aria-label="Chart legend">
+            <span><span class="legend-swatch invested"></span>Invested</span>
+            <span><span class="legend-swatch returns"></span>Returns</span>
+          </div>
+        </div>
       </div>
     </section>
   </main>

@@ -6,8 +6,10 @@ const resultPanel = document.getElementById('result');
 const totalInvestedOutput = document.getElementById('total-invested');
 const estimatedReturnsOutput = document.getElementById('estimated-returns');
 const maturityValueOutput = document.getElementById('maturity-value');
+const chartContainer = document.getElementById('chart');
 const resetButton = document.getElementById('reset-btn');
 const errorMessage = document.getElementById('error-message');
+const themeToggleButton = document.getElementById('theme-toggle');
 
 function formatCurrency(value) {
   return new Intl.NumberFormat('en-IN', {
@@ -75,7 +77,74 @@ function calculateSIP(event) {
   estimatedReturnsOutput.textContent = formatCurrency(estimatedReturns);
   maturityValueOutput.textContent = formatCurrency(maturityValue);
   resultPanel.classList.remove('hidden');
+  renderChart(monthlyInvestment, annualReturn, durationYears);
 }
+
+function renderChart(monthlyInvestment, annualReturn, durationYears) {
+  chartContainer.innerHTML = '';
+  const monthlyRate = annualReturn / 100 / 12;
+  const totalYears = Math.max(1, Math.round(durationYears));
+  const maxDataPoints = Math.min(totalYears, 10);
+
+  const yearData = Array.from({ length: maxDataPoints }, (_, index) => {
+    const year = index + 1;
+    const months = year * 12;
+    const invested = monthlyInvestment * months;
+    const maturity = monthlyRate === 0
+      ? invested
+      : monthlyInvestment * ((Math.pow(1 + monthlyRate, months) - 1) / monthlyRate) * (1 + monthlyRate);
+    return {
+      year,
+      invested,
+      returns: Math.max(0, maturity - invested),
+    };
+  });
+
+  const maxValue = Math.max(...yearData.map((item) => item.invested + item.returns));
+  const chartGrid = document.createElement('div');
+  chartGrid.className = 'chart-grid';
+
+  yearData.forEach((item) => {
+    const column = document.createElement('div');
+    column.className = 'chart-column';
+
+    const yearLabel = document.createElement('div');
+    yearLabel.className = 'year-label';
+    yearLabel.textContent = `Year ${item.year}`;
+
+    const bars = document.createElement('div');
+    bars.className = 'bar-stack';
+
+    const investedBar = document.createElement('div');
+    investedBar.className = 'column-bar invested';
+    investedBar.style.height = `${(item.invested / maxValue) * 100}%`;
+    investedBar.title = `Invested: ₹${Math.round(item.invested).toLocaleString('en-IN')}`;
+
+    const returnsBar = document.createElement('div');
+    returnsBar.className = 'column-bar returns';
+    returnsBar.style.height = `${(item.returns / maxValue) * 100}%`;
+    returnsBar.title = `Returns: ₹${Math.round(item.returns).toLocaleString('en-IN')}`;
+
+    bars.append(investedBar, returnsBar);
+    column.append(bars, yearLabel);
+    chartGrid.append(column);
+  });
+
+  chartContainer.append(chartGrid);
+}
+
+function setTheme(theme) {
+  document.documentElement.dataset.theme = theme;
+  themeToggleButton.textContent = theme === 'light' ? 'Dark Mode' : 'Light Mode';
+}
+
+function toggleTheme() {
+  const currentTheme = document.documentElement.dataset.theme === 'light' ? 'light' : 'dark';
+  setTheme(currentTheme === 'light' ? 'dark' : 'light');
+}
+
+themeToggleButton.addEventListener('click', toggleTheme);
+setTheme(window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
 
 form.addEventListener('submit', calculateSIP);
 resetButton.addEventListener('click', resetCalculator);
