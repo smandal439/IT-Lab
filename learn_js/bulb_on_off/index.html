@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Bulb On/Off</title>
+    <style>
+        body {
+            text-align: center;
+            font-family: Arial, sans-serif;
+            background-color: #f0acac;
+        }
+
+        #bulb {
+            margin: 20px;
+        }
+
+        #sw {
+            margin: 20px;
+            padding: 10px 20px;
+            font-size: 16px;
+        }
+    </style>
+</head>
+
+<body>
+    <p id="bulb"> <img src='off.png'> </p>
+    <!-- <input type="submit" value="turn on" id="sw" onmouseover="f1()"> -->
+    <input type="submit" value="turn on" id="sw" onclick="f1()">
+    <script>
+        let state = 0;
+        function f1() {
+            if (state == 0) {
+                document.getElementById("bulb").innerHTML = "<img src='on.png'>";
+                document.getElementById("sw").value = "turn off";
+                document.getElementById("sw").style.backgroundColor = "red";
+                document.getElementById("sw").style.cursor = "pointer";
+                state = 1;
+            }
+
+            else {
+                document.getElementById("bulb").innerHTML = "<img src='off.png'>";
+                document.getElementById("sw").value = "turn on";
+                document.getElementById("sw").style.backgroundColor = "lightgreen";
+                state = 0;
+            }
+        }	
+    </script>
+</body>
+
+
+
+
+</html>
