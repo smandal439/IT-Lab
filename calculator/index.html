@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
-  <title>Calculator Hub · mobile</title>
+  <title>Calculator Hub · Guide</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -66,7 +66,7 @@
     .tab-bar {
       display: flex;
       flex-wrap: wrap;
-      gap: 6px;
+      gap: 4px;
       background: rgba(15, 23, 42, 0.7);
       border-radius: 40px;
       padding: 6px;
@@ -333,6 +333,102 @@
       line-height: 1.5;
     }
 
+    /* guide panel */
+    .guide-panel {
+      max-height: 70vh;
+      overflow-y: auto;
+      padding-right: 6px;
+      scrollbar-width: thin;
+      scrollbar-color: rgba(148,163,184,0.2) transparent;
+    }
+    .guide-panel::-webkit-scrollbar {
+      width: 5px;
+    }
+    .guide-panel::-webkit-scrollbar-thumb {
+      background: rgba(148,163,184,0.3);
+      border-radius: 10px;
+    }
+    .guide-panel h2 {
+      font-size: 1.6rem;
+      font-weight: 600;
+      margin: 0 0 12px 0;
+      background: linear-gradient(to right, #bae6fd, #a78bfa);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .guide-panel h3 {
+      font-size: 1.2rem;
+      font-weight: 600;
+      margin: 20px 0 10px 0;
+      color: #bae6fd;
+    }
+    .guide-panel h4 {
+      font-size: 1rem;
+      font-weight: 600;
+      margin: 16px 0 6px 0;
+      color: #fcd34d;
+    }
+    .guide-panel p {
+      margin: 6px 0 12px 0;
+      line-height: 1.6;
+      color: #e2e8f0;
+    }
+    .guide-panel ul, .guide-panel ol {
+      margin: 6px 0 12px 20px;
+      color: #e2e8f0;
+      line-height: 1.7;
+    }
+    .guide-panel li {
+      margin-bottom: 4px;
+    }
+    .guide-panel table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 12px 0 16px;
+      font-size: 0.85rem;
+      background: rgba(2,6,23,0.3);
+      border-radius: 16px;
+      overflow: hidden;
+    }
+    .guide-panel th {
+      background: rgba(56,189,248,0.15);
+      color: #bae6fd;
+      font-weight: 600;
+      padding: 10px 12px;
+      text-align: left;
+    }
+    .guide-panel td {
+      padding: 8px 12px;
+      border-top: 1px solid rgba(148,163,184,0.08);
+      color: #e2e8f0;
+    }
+    .guide-panel .key {
+      display: inline-block;
+      background: rgba(15,23,42,0.7);
+      border: 1px solid rgba(148,163,184,0.2);
+      border-radius: 6px;
+      padding: 0 8px;
+      font-family: monospace;
+      font-size: 0.8rem;
+      color: #fcd34d;
+    }
+    .guide-panel .badge {
+      display: inline-block;
+      background: rgba(56,189,248,0.12);
+      color: #bae6fd;
+      border-radius: 20px;
+      padding: 2px 12px;
+      font-size: 0.7rem;
+      font-weight: 600;
+      margin-right: 4px;
+    }
+    .guide-panel .divider {
+      height: 1px;
+      background: linear-gradient(to right, transparent, rgba(148,163,184,0.15), transparent);
+      margin: 24px 0 16px;
+    }
+
     /* mobile fine-tune */
     @media (max-width: 640px) {
       .app-shell {
@@ -389,6 +485,15 @@
       .age-panel h2 {
         font-size: 1.5rem;
       }
+      .guide-panel {
+        max-height: 60vh;
+      }
+      .guide-panel h2 {
+        font-size: 1.3rem;
+      }
+      .guide-panel h3 {
+        font-size: 1rem;
+      }
     }
 
     @media (max-width: 420px) {
@@ -412,18 +517,25 @@
         grid-template-columns: 1fr;
         gap: 4px;
       }
+      .guide-panel table {
+        font-size: 0.7rem;
+      }
+      .guide-panel th, .guide-panel td {
+        padding: 6px 8px;
+      }
     }
   </style>
 </head>
 <body>
 <main class="app-shell">
   <header class="app-header">
-    <h1>🧮 Hub</h1>
+    <h1>Calculator Hub</h1>
     <div class="tab-bar" role="tablist">
       <button class="tab active" data-tab="standard" role="tab" aria-selected="true">Standard</button>
       <button class="tab" data-tab="scientific" role="tab" aria-selected="false">Scientific</button>
       <button class="tab" data-tab="programmer" role="tab" aria-selected="false">Programmer</button>
       <button class="tab" data-tab="age" role="tab" aria-selected="false">Age</button>
+      <button class="tab" data-tab="guide" role="tab" aria-selected="false">📖 Guide</button>
     </div>
   </header>
 
@@ -573,6 +685,86 @@
       </div>
       <button class="btn equals accent full-width" id="age-calculate">Calculate Age</button>
       <div class="result-box" id="age-result">Please enter your birth date.</div>
+    </div>
+  </section>
+
+  <!-- GUIDE TAB -->
+  <section class="tab-panel" id="guide-panel" role="tabpanel">
+    <div class="calculator-panel guide-panel">
+      <h2>📖 User Guide</h2>
+      <p><strong>Calculator Hub</strong> combines four calculators in one. Switch tabs, use keyboard shortcuts, and enjoy mobile-friendly touch controls.</p>
+
+      <div class="divider"></div>
+
+      <h3>⌨️ Keyboard Shortcuts</h3>
+      <p>Works when no input field is focused. Use <span class="key">Tab</span> to move focus away.</p>
+      <table>
+        <tr><th>Key</th><th>Action</th></tr>
+        <tr><td><span class="key">0-9</span> <span class="key">.</span></td><td>Enter numbers / decimal</td></tr>
+        <tr><td><span class="key">+</span> <span class="key">-</span> <span class="key">*</span> <span class="key">/</span></td><td>Operators (add, subtract, multiply, divide)</td></tr>
+        <tr><td><span class="key">%</span></td><td>Percentage (Standard / Scientific)</td></tr>
+        <tr><td><span class="key">^</span></td><td>Exponentiation (Scientific only)</td></tr>
+        <tr><td><span class="key">Enter</span> or <span class="key">=</span></td><td>Calculate result</td></tr>
+        <tr><td><span class="key">Backspace</span></td><td>Delete last character</td></tr>
+        <tr><td><span class="key">Escape</span></td><td>Clear (AC)</td></tr>
+      </table>
+
+      <div class="divider"></div>
+
+      <h3>🧮 Standard Calculator</h3>
+      <p>Basic arithmetic: addition, subtraction, multiplication, division, and percentages.</p>
+      <ul>
+        <li><strong>%</strong> — percentage of first value (e.g. <code>200 + 10% = 220</code>)</li>
+        <li><strong>AC</strong> — clears everything</li>
+        <li><strong>DEL</strong> — removes last digit</li>
+      </ul>
+
+      <div class="divider"></div>
+
+      <h3>🔬 Scientific Calculator</h3>
+      <p>Trigonometry, logarithms, exponentiation, constants, and parentheses.</p>
+      <table>
+        <tr><th>Function</th><th>Description</th><th>Example</th></tr>
+        <tr><td>sin / cos / tan</td><td>Trigonometric (degrees)</td><td><code>sin(30) = 0.5</code></td></tr>
+        <tr><td>log / ln</td><td>Log base-10 / natural log</td><td><code>log(100) = 2</code></td></tr>
+        <tr><td>√</td><td>Square root</td><td><code>√(16) = 4</code></td></tr>
+        <tr><td>x^y</td><td>Exponentiation</td><td><code>2^3 = 8</code></td></tr>
+        <tr><td>π / e</td><td>Pi and Euler's number</td><td><code>π × 2</code></td></tr>
+        <tr><td>( )</td><td>Parentheses for grouping</td><td><code>(2+3)×4 = 20</code></td></tr>
+      </table>
+
+      <div class="divider"></div>
+
+      <h3>💻 Programmer Calculator</h3>
+      <p>Bitwise operations and base conversion (Binary, Octal, Decimal, Hex).</p>
+      <ul>
+        <li><strong>Base dropdown</strong> — switch between BIN, OCT, DEC, HEX</li>
+        <li><strong>AND / OR / XOR / NOT</strong> — bitwise logic</li>
+        <li><strong>&lt;&lt; / &gt;&gt;</strong> — bit shift left / right</li>
+        <li><strong>Conversions</strong> — DEC, BIN, HEX shown in real time</li>
+      </ul>
+      <p><strong>Example:</strong> In Decimal, <code>5 AND 3 = 1</code>. In Hex, <code>A + 5 = F</code>.</p>
+
+      <div class="divider"></div>
+
+      <h3>📅 Age Calculator</h3>
+      <ul>
+        <li>Enter your <strong>date of birth</strong></li>
+        <li>Check <strong>"Use today as target date"</strong> for current age</li>
+        <li>Or uncheck to pick a custom <strong>target date</strong></li>
+        <li>Press <strong>Calculate Age</strong> to see years, months, and days</li>
+      </ul>
+
+      <div class="divider"></div>
+
+      <h3>📱 Mobile & Touch</h3>
+      <ul>
+        <li>All buttons are sized for fingers</li>
+        <li>Responsive layout adapts to any screen</li>
+        <li>Date pickers work natively on mobile</li>
+        <li>Pinch-to-zoom supported</li>
+      </ul>
+      <p style="color:#94a3b8; font-size:0.85rem; margin-top:8px;">Tip: rotate your device for a wider view on tablets.</p>
     </div>
   </section>
 </main>
@@ -863,14 +1055,13 @@
       ageResult.innerHTML = `You are <strong>${y}</strong> years, <strong>${m}</strong> months, <strong>${d}</strong> days old.`;
     });
 
-    // ---- KEYBOARD (fix for all panels) ----
+    // ---- KEYBOARD (all panels) ----
     document.addEventListener('keydown', function(e) {
       if (e.target.matches('input, select, textarea')) return;
       const activePanel = document.querySelector('.tab-panel.active');
       if (!activePanel) return;
       const id = activePanel.id;
 
-      // numbers & dot
       if ((e.key >= '0' && e.key <= '9') || e.key === '.') {
         if (id === 'standard-panel') { stdAppend(e.key); e.preventDefault(); }
         else if (id === 'scientific-panel') { sciAppendNum(e.key); e.preventDefault(); }
@@ -880,7 +1071,6 @@
         }
       }
 
-      // operators
       if (['+','-','*','/','%','^'].includes(e.key)) {
         if (id === 'standard-panel') { stdOp(e.key); e.preventDefault(); }
         else if (id === 'scientific-panel') { sciAppendOp(e.key); e.preventDefault(); }
@@ -890,21 +1080,18 @@
         }
       }
 
-      // Enter / =
       if (e.key === 'Enter' || e.key === '=') {
         if (id === 'standard-panel') { stdCompute(); e.preventDefault(); }
         else if (id === 'scientific-panel') { sciCalc(); e.preventDefault(); }
         else if (id === 'programmer-panel') { progEquals(); e.preventDefault(); }
       }
 
-      // Backspace
       if (e.key === 'Backspace') {
         if (id === 'standard-panel') { stdDel(); e.preventDefault(); }
         else if (id === 'scientific-panel') { sciDel(); e.preventDefault(); }
         else if (id === 'programmer-panel') { progDel(); e.preventDefault(); }
       }
 
-      // Escape = clear
       if (e.key === 'Escape') {
         if (id === 'standard-panel') { stdClear(); e.preventDefault(); }
         else if (id === 'scientific-panel') { sciClear(); e.preventDefault(); }
